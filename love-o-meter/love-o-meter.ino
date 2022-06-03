@@ -1,5 +1,5 @@
 const int sensorPin = A0;
-const float baselineTemp = 16.0;
+const float baselineTemp = 24.0;
 
 void setup() {
   Serial.begin(9600);
@@ -16,14 +16,6 @@ void loop() {
   int sensorVal = analogRead(sensorPin);
   float voltage = (sensorVal / 1024.0) * 5.0;
   float temperature = (voltage - .5) * 100;
-
-  // Serial.print("Sensor Val: ");
-  // Serial.print(sensorVal);
-  // Serial.print("\n");
-
-  // Serial.print("Voltage: ");
-  // Serial.print(voltage);
-  // Serial.print("\n");
 
   Serial.print("Temp: ");
   Serial.print(temperature);
@@ -46,10 +38,6 @@ void loop() {
   } else {
     onPin = 2;
   }
-
-  Serial.print("On pin ");
-  Serial.print(onPin);
-  Serial.print("\n");
 
   for (int i = 2; i < 6; i++) {
     if (i == onPin) {
